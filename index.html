@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Below Poverty Line Certificate</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        input[type="text"] {
+            border: 1px solid #000;
+            padding: 5px;
+            width: 100%;
+          
+        }
+        .certificate {
+            padding: 20px;
+            border: 2px solid #000;
+            margin: 20px auto;
+            max-width: 600px;
+            background-color:white;
+        }
+        h2 {
+            text-align: center;
+            font-weight: bolder;
+        }
+        .header, .footer, .content {
+            margin-bottom: 20px;
+            font-weight: bolder;
+        }
+        .header .left, .header .right, .footer .left {
+            width: 100%;
+        }
+        .header .left p, .header .right table, .footer .left p {
+            margin-bottom: 10px;
+            font-weight: bolder;
+        }
+        .header .right h2 {
+            text-align: center;
+        }
+      .buttons{
+      text-align: center;
+
+      }
+    </style>
+</head>
+<body>
+    <!-- Input Form -->
+    <div class="certificate" id="input-form">
+        <div class="header">
+            <div class="left">
+                <h2>दारीद्रयरेषेखालील कुंटूंबाचा दाखला</h2>
+                <p>
+                    ग्रापंचायत कार्यालय
+                    <input type="text" id="office" placeholder="" /> ता.
+                    <input type="text" id="tal" placeholder="" /> जि.
+                    <input type="text" id="dist" placeholder="" />
+                </p>
+                <p>
+                    Grampanchayat Office
+                    <input type="text" id="officeEn" placeholder="" />Tal
+                    <input type="text" id="talEn" placeholder="" />Dist
+                    <input type="text" id="distEn" placeholder="" />
+                </p>
+                <p>
+                    जा.क्र.:
+                    <input type="text" id="dispatch-no" placeholder="" /> दिनांक:
+                    <input type="text" id="date" placeholder="" />
+                </p>
+            </div>
+        </div>
+        <div class="content">
+            <p>श्री./श्रीमती <input type="text" id="name" placeholder="" /></p>
+            <p>Mr./Mrs. <input type="text" id="name_en" placeholder="" /></p>
+            <p>
+                आधार कार्ड क्र.:
+                <input type="text" id="aadharNo" placeholder="" /> Adhar Card Number:
+                <input type="text" id="aadharNoEn" placeholder="" />
+            </p>
+            <p>
+                राहाणे <input type="text" id="residence" placeholder="" /> ता.
+                <input type="text" id="residenceTal" placeholder="" /> जि.
+                <input type="text" id="residenceDist" placeholder="" /> महाराष्ट्र
+            </p>
+            <p>
+                Residing at
+                <input type="text" id="residenceEn" placeholder="" /> tal.
+                <input type="text" id="residenceTalEn" placeholder="" /> Dist
+                <input type="text" id="residenceDistEn" placeholder="" />,
+                Maharashtra
+            </p>
+            <p>
+                यांचा क्रम <input type="text" id="year" placeholder="" /> या वर्षातील
+                दारीद्रयरेषेखालील यादीतील क्रमांक
+                <input type="text" id="bplNo" placeholder="" /> आहे.
+            </p>
+            <p>
+                In the year <input type="text" id="yearEn" placeholder="" /> Below
+                poverty line list no.
+                <input type="text" id="bplNoEn" placeholder="" />
+            </p>
+            <p>
+                श्री./श्रीमती <input type="text" id="nameReq" placeholder="" /> हा
+                /ही/ त्यांचा/तिचा
+                <input type="text" id="relation" placeholder="" /> आहे.
+            </p>
+            <p>Certificate is issued on request of applicant.</p>
+        </div>
+        <div class="footer">
+            <div class="left">
+                <p>
+                    ठिकाण: <input type="text" id="place" placeholder="" />
+                </p>
+                <p>
+                    Place: <input type="text" id="placeEn" placeholder="" /> 
+                   
+                </p>
+            </div>
+        </div>
+        <button type="submit" class="btn btn-primary buttons" onclick="submitForm()">Submit</button>
+    </div>
+    <div id="output-form" class="certificate" style="display: none">
+        <h2>Submitted Data</h2>
+        <div class="content" id="output-content"></div>
+        <!-- <button class="btn btn-secondary" onclick="editForm()">edit</button> -->
+    </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function submitForm() {
+            event.preventDefault();
+
+            const formData = {
+                office: document.getElementById('office').value,
+                tal: document.getElementById('tal').value,
+                dist: document.getElementById('dist').value,
+                office: document.getElementById('officeEn').value,
+                tal: document.getElementById('talEn').value,
+                dist: document.getElementById('distEn').value,
+                dispatchNo: document.getElementById('dispatch-no').value,
+                date: document.getElementById('date').value,
+                name: document.getElementById('name').value,
+                nameEn: document.getElementById('name_en').value,
+                aadharNo: document.getElementById('aadharNo').value,
+                aadharNoEn: document.getElementById('aadharNoEn').value,
+                residence: document.getElementById('residence').value,
+                residenceTal: document.getElementById('residenceTal').value,
+                residenceDist: document.getElementById('yearEn').value,
+                residenceEn: document.getElementById('residenceEn').value,
+                residenceTalEn: document.getElementById('residenceTalEn').value,
+                residenceDistEn: document.getElementById('residenceDistEn').value,
+                year: document.getElementById('year').value,
+                bplNo: document.getElementById('bplNoEn').value,
+                yearEn: document.getElementById('yearEn').value,
+                bplNoEn: document.getElementById('bplNoEn').value,
+                nameReq: document.getElementById('nameReq').value,
+                relation: document.getElementById('relation').value,
+                place: document.getElementById('place').value,
+                placeEn: document.getElementById('placeEn').value
+
+    
+                
+            };
+
+            fetch('https://script.google.com/macros/s/AKfycbzmTdxmNfWYZYPm2anfHyxOtnHiHT-APjdDFZyV7cduEGHteS8Kz2iK9C9QlyoRuwdrdA/exec', {
+                method: 'POST',
+                contentType: 'application/json',
+                body: JSON.stringify(formData)
+            })
+            .then(response => response.text())
+            .then(result => {
+                alert('Form submitted successfully!');
+                document.getElementById('input-form').reset();
+            })
+            .catch(error => {
+                alert('Press OK To Add New Data ');
+            });
+        }
+    </script>
+</body>
+</html>
